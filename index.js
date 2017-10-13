@@ -1,7 +1,6 @@
 const functions = require('firebase-functions');
 const admin = require('firebase-admin');
 const _cors = require('cors');
-var bcrypt = require('bcrypt');
 var firebase=require('firebase');
 var serviceAccount = require("./second-5bcbc-firebase-adminsdk-bv1p6-05d7027cd3.json");
 
@@ -24,22 +23,24 @@ var config = {
 
 
 // api.ai web hook
-// exports.myApp=functions.https.onRequest((req,res)=>{
+exports.myApp=functions.https.onRequest((req,res)=>{
 
-//         var speech=req.body.result.resolvedQuery;
+        var speech=req.body.result.resolvedQuery;
 
-//         const getClientDeviceId = admin.database().ref(`/First/name`).once('value').then((data)=>{
-//             console.log(data);
-//             speech = data;
-//             return res.json({
+        const getClientDeviceId = admin.database().ref(`/First/name`).once('value').then((data)=>{
+            console.log(data);
+            speech = data;
+            return res.json({
 
-//                 speech: speech,
-//                 displayText: speech,
-//                 source:'webhook-echo-sample'
-//             });
-//         });
+                speech: speech,
+                displayText: speech,
+                source:'webhook-echo-sample'
+            });
+        });
 
-//     });
+    });
+
+
 
 
 //for access token
