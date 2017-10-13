@@ -19,7 +19,7 @@ var config = {
   firebase.initializeApp(config);
 
 
-//admin.initializeApp(functions.config().firebase);
+admin.initializeApp(functions.config().firebase);
 
 
 // api.ai web hook
